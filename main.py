@@ -68,7 +68,7 @@ def processar_arquivo_glosa_inicial(uploaded_file, file_type):
             df_marca_codigo = df_somatorio_marca[df_somatorio_marca['Marca'] == marca].sort_values('Glosa Inicial', ascending=False)
             lista_operadoras = df_1marca['Operadora'].unique()
             for operadora in lista_operadoras:
-                df_1operadora = df_marca_codigo[df_marca_codigo['Operadora'] == operadora].sort_values('Glosa Inicial', ascending=False)[:5]
+                df_1operadora = df_marca_codigo[df_marca_codigo['Operadora'] == operadora].sort_values('Glosa Inicial', ascending=False)[:8]
                 codigos = df_1operadora['Motivo Operadora (Código)'].unique()
                 for codigo_ in codigos:
                     df_top5_dcm_ = df_somatorio.query(f"Operadora == '{operadora}' and Marca == '{marca}' and `Motivo Operadora (Código)` =='{codigo_}' ").sort_values('Glosa Inicial', ascending=False).reset_index()[:5]
